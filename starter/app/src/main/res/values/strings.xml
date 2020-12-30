@@ -1,3 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ShoeStore</string>
+    <string name="app_name">Shoe Store</string>
+    <string name="shoe_store_logo_description">Shoe Store Logo</string>
+    <string name="user_name">User name</string>
+    <string name="pasword">Pasword</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create new Account</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="loremipsum1p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue nisi vitae suscipit tellus mauris a diam. Sit amet aliquam id diam. Diam maecenas sed enim ut sem viverra aliquet eget. Adipiscing diam donec adipiscing tristique risus nec feugiat. Gravida quis blandit turpis cursus in hac. Sed arcu non odio euismod lacinia at quis risus. Commodo nulla facilisi nullam vehicula ipsum. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Elementum facilisis leo vel fringilla est ullamcorper eget. Urna duis convallis convallis tellus id interdum velit laoreet id. Vulputate odio ut enim blandit volutpat maecenas volutpat. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Aliquet eget sit amet tellus.</string>
+    <string name="image_with_different_people_welcoming_you">Image with different people welcoming you</string>
+    <string name="welcome_to_shoe_store">Welcome %s to Shoe Store</string>
+    <string name="instructions_button">Instructions button</string>
+    <string name="instructions">Instructions</string>
+    <string name="shoe_image">Shoe Image</string>
 </resources>

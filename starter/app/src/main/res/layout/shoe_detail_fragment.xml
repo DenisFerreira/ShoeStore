@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.model.Shoe" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/shoe_detail_contraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.shoeDetails.ShoeDetailFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/shoe_detail_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:fontFamily="serif"
+                    android:text="Shoe Detail"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:typeface="normal" />
+
+                <EditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    android:text="@{shoe.name}" />
+
+                <EditText
+                    android:id="@+id/editTextCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Company"
+                    android:inputType="textPersonName"
+                    android:text="@{shoe.company}" />
+
+                <EditText
+                    android:id="@+id/editTextSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="2"
+                    android:ems="10"
+                    android:hint="Size"
+                    android:inputType="number"
+                    android:text="@{String.valueOf(shoe.size)}" />
+
+                <EditText
+                    android:id="@+id/editTextDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Description"
+                    android:inputType="textPersonName"
+                    android:text="@{shoe.description}" />
+
+                <Button
+                    android:id="@+id/save_shoe_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Save" />
+
+                <Button
+                    android:id="@+id/cancel_shoe_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Cancel" />
+
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</layout>
