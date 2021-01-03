@@ -1,4 +1,4 @@
-package com.udacity.shoestore.view.shoeDetails
+package com.udacity.shoestore.view.shoeEdit
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,13 +26,15 @@ class ShoeDetailFragment : Fragment() {
         val shoeDetailFragmentArgs by navArgs<ShoeDetailFragmentArgs>()
         val position = shoeDetailFragmentArgs.shoeId
 
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.shoe_detail_fragment, container, false)
+        binding =
+            DataBindingUtil.inflate(layoutInflater, R.layout.shoe_detail_fragment, container, false)
         model.shoes.observe(viewLifecycleOwner, Observer { binding.shoe = it.get(position) })
 
         binding.saveShoeBtn.setOnClickListener {
             model.updateShoe(binding.shoe, position)
+            findNavController().navigateUp()
         }
-        binding.cancelShoeBtn.setOnClickListener { findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()) }
+        binding.cancelShoeBtn.setOnClickListener { findNavController().navigateUp() }
         return binding.root
     }
 

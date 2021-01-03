@@ -5,6 +5,7 @@
     tools:context=".view.welcome.WelcomeFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.udacity.shoestore.view.welcome.WelcomeViewModel" />

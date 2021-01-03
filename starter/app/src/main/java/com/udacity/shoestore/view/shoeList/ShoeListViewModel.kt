@@ -1,6 +1,5 @@
 package com.udacity.shoestore.view.shoeList
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +11,8 @@ class ShoeListViewModel() : ViewModel() {
             _shoes.value?.set(position, shoe)
         }
     }
+
+    fun addShoe(shoe: Shoe?) = _shoes.value?.add(shoe!!)
 
     // TODO: Implement the ViewModel
     private val _shoes = MutableLiveData<MutableList<Shoe>>()

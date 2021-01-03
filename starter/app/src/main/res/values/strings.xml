@@ -13,4 +13,6 @@
     <string name="instructions_button">Instructions button</string>
     <string name="instructions">Instructions</string>
     <string name="shoe_image">Shoe Image</string>
+    <string name="add_new_shoe">Add new Shoe</string>
+    <string name="logout">Logout</string>
 </resources>

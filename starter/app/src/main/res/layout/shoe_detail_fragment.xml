@@ -14,7 +14,7 @@
         android:id="@+id/shoe_detail_contraint_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.shoeDetails.ShoeDetailFragment">
+        tools:context=".view.shoeEdit.ShoeDetailFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                     android:ems="10"
                     android:hint="Name"
                     android:inputType="textPersonName"
-                    android:text="@{shoe.name}" />
+                    android:text="@={shoe.name}" />
 
                 <EditText
                     android:id="@+id/editTextCompany"
@@ -57,17 +57,15 @@
                     android:ems="10"
                     android:hint="Company"
                     android:inputType="textPersonName"
-                    android:text="@{shoe.company}" />
+                    android:text="@={shoe.company}" />
 
                 <EditText
                     android:id="@+id/editTextSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="2"
-                    android:ems="10"
                     android:hint="Size"
                     android:inputType="number"
-                    android:text="@{String.valueOf(shoe.size)}" />
+                    android:text="@={`` + shoe.size}" />
 
                 <EditText
                     android:id="@+id/editTextDescription"
@@ -76,7 +74,7 @@
                     android:ems="10"
                     android:hint="Description"
                     android:inputType="textPersonName"
-                    android:text="@{shoe.description}" />
+                    android:text="@={shoe.description}" />
 
                 <Button
                     android:id="@+id/save_shoe_btn"

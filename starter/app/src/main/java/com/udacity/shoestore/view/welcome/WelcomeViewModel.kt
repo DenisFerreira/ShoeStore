@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class WelcomeViewModel(userName: String) : ViewModel() {
     private val _username = MutableLiveData<String>()
-    val username : LiveData<String>
+    val username: LiveData<String>
         get() = _username
 
     init {

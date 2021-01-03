@@ -19,11 +19,18 @@ class LoginViewModel : ViewModel() {
         _eventLogged.value = validateUserPassword(username, password)
     }
 
+    fun logout() {
+        _eventLogged.value = false
+    }
+
     fun createNewAcount() {
         _eventLogged.value = true
     }
 
-    private fun validateUserPassword(_username: MutableLiveData<String>, _password: MutableLiveData<String>): Boolean? {
+    private fun validateUserPassword(
+        _username: MutableLiveData<String>,
+        _password: MutableLiveData<String>
+    ): Boolean? {
         return true
     }
 }
