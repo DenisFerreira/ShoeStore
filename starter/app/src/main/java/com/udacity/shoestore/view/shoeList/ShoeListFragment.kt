@@ -7,16 +7,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
-import com.udacity.shoestore.model.Shoe
 
 class ShoeListFragment : Fragment(), ShoeListAdapter.ShoeItemListener {
 
     private lateinit var binding: ShoeListFragmentBinding
+
     // Use the 'by activityViewModels()' Kotlin property delegate
     // from the fragment-ktx artifact
     private val model: ShoeListViewModel by activityViewModels()
@@ -28,15 +27,17 @@ class ShoeListFragment : Fragment(), ShoeListAdapter.ShoeItemListener {
 
         binding =
             DataBindingUtil.inflate(layoutInflater, R.layout.shoe_list_fragment, container, false)
-
         binding.shoeListRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
         binding.shoeListRecyclerView.adapter =
-            ShoeListAdapter(model.shoes.value ?: emptyList(), this)
+            ShoeListAdapter(model.shoes, viewLifecycleOwner, this)
+        binding.addShoeButton.setOnClickListener {
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeAddFragment())
+        }
 
         return binding.root
     }
-
 
     override fun onClick(position: Int) {
         findNavController().navigate(

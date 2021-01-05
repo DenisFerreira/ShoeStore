@@ -5,11 +5,13 @@
     tools:context=".view.welcome.WelcomeFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.udacity.shoestore.view.welcome.WelcomeViewModel" />
     </data>
 
+    <!--    Using ConstraintLayout since i have few components and they have required theirs position based on the parent position  -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

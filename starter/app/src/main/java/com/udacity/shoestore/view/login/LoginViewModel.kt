@@ -15,15 +15,26 @@ class LoginViewModel : ViewModel() {
     val eventLogged: LiveData<Boolean>
         get() = _eventLogged
 
+    init {
+        _eventLogged.value = false
+    }
+
     fun login() {
         _eventLogged.value = validateUserPassword(username, password)
     }
 
-    fun createNewAcount() {
+    fun logout() {
+        _eventLogged.value = false
+    }
+
+    fun createNewAccount() {
         _eventLogged.value = true
     }
 
-    private fun validateUserPassword(_username: MutableLiveData<String>, _password: MutableLiveData<String>): Boolean? {
+    private fun validateUserPassword(
+        _username: MutableLiveData<String>,
+        _password: MutableLiveData<String>
+    ): Boolean {
         return true
     }
 }

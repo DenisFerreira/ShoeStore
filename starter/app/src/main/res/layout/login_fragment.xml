@@ -10,6 +10,7 @@
             type="com.udacity.shoestore.view.login.LoginViewModel" />
     </data>
 
+<!--    Constraint layout used because we have few components and we have more freedom to align the fields-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -72,7 +73,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
-            android:onClick="@{() -> viewModel.createNewAcount()}"
+            android:onClick="@{() -> viewModel.createNewAccount()}"
             android:text="@string/create_new_account"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
