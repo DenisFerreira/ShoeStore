@@ -2,9 +2,6 @@ package com.udacity.shoestore
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -19,12 +16,7 @@ import timber.log.Timber.DebugTree
 
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        private const val HIDE_MENU: Int = 1
-        private const val SHOW_MENU: Int = 0
-    }
 
-    private var mState: Int = SHOW_MENU
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val viewModel: LoginViewModel by viewModels()
     private lateinit var navController: NavController
@@ -42,40 +34,12 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, _: Bundle? ->
-            if (nd.id == nc.graph.startDestination) {
-                mState = HIDE_MENU // setting state
-                invalidateOptionsMenu()
-            } else {
-                mState = SHOW_MENU
-                invalidateOptionsMenu()
-                if (!viewModel.eventLogged.value!!) {
-                    nc.popBackStack()
-                    nc.navigate(nc.graph.startDestination)
-                }
+            if (nd.id != nc.graph.startDestination && (!viewModel.eventLogged.value!!)) {
+                nc.popBackStack()
+                nc.navigate(nc.graph.startDestination)
             }
-
         }
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if (mState == HIDE_MENU) {
-            return false
-        }
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_app_bar, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.logout_menu_item -> {
-                viewModel.logout()
-                navController.navigateUp()
-            }
-            else -> null
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {

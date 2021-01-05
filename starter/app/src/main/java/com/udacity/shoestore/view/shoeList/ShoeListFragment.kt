@@ -1,16 +1,17 @@
 package com.udacity.shoestore.view.shoeList
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.udacity.shoestore.MainActivity
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentInstructionsBinding.inflate
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
+import com.udacity.shoestore.view.login.LoginViewModel
 
 class ShoeListFragment : Fragment(), ShoeListAdapter.ShoeItemListener {
 
@@ -19,6 +20,7 @@ class ShoeListFragment : Fragment(), ShoeListAdapter.ShoeItemListener {
     // Use the 'by activityViewModels()' Kotlin property delegate
     // from the fragment-ktx artifact
     private val model: ShoeListViewModel by activityViewModels()
+    private val loginViewModel: LoginViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +37,7 @@ class ShoeListFragment : Fragment(), ShoeListAdapter.ShoeItemListener {
         binding.addShoeButton.setOnClickListener {
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeAddFragment())
         }
-
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -45,6 +47,21 @@ class ShoeListFragment : Fragment(), ShoeListAdapter.ShoeItemListener {
                 position
             )
         )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_app_bar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.logout_menu_item -> {
+                loginViewModel.logout()
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
+            }
+            else -> null
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
